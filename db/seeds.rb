@@ -6,4 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create! username: "eoh", password: "eewhyoh1"
+puts "It's generating my users"
+
+u = User.find_or_create_by(user_name: "eewhyoh")
+u.update_attributes({
+  user_name:      "eoh"
+  password:       "eewhyoh1"
+})
+
+u.save!
+
+puts "done"
